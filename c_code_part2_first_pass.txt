@@ -1,0 +1,309 @@
+// Continuing first pass translation of part_aa into C.
+// Addresses 0x00000274 - 0x000004b8
+
+void continue_init_sequence(void) {
+loc_274:
+    // 0x00000274: lw $t1, 4($sp)
+    t1 = *((uint32_t*)(sp + 4));
+    // 0x00000278: lui $t0, 0xb009
+    t0 = 0xb0090000;
+    // 0x0000027c: bne $t1, $t0, 0x2d8
+    if (t1 != t0) goto loc_2d8;
+    // 0x00000280: nop
+    
+    // 0x00000284: sw $t8, 4($s1)
+    *((uint32_t*)(s1 + 4)) = t8;
+    // 0x00000288: addiu $s5, $t9, 0xc
+    s5 = t9 + 0xc;
+    // 0x0000028c: lw $a0, ($sp)
+    a0 = *((uint32_t*)sp);
+    // 0x00000290: addi $sp, $sp, 8
+    sp += 8;
+    // 0x00000294: addiu $a1, $zero, 1
+    a1 = 1;
+    // 0x00000298: jal 0x4000a40
+    func_4000a40(a0, a1);
+    // 0x0000029c: nop
+    
+    // 0x000002a0: lw $t0, ($s6)
+    t0 = *((uint32_t*)s6);
+    // 0x000002a4: lui $t0, 8
+    t0 = 0x00080000;
+    // 0x000002a8: add $t0, $t0, $s6
+    t0 = t0 + s6;
+    // 0x000002ac: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x000002b0: lw $t0, ($s6)
+    t0 = *((uint32_t*)s6);
+    // 0x000002b4: lui $t0, 8
+    t0 = 0x00080000;
+    // 0x000002b8: add $t0, $t0, $s6
+    t0 = t0 + s6;
+    // 0x000002bc: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x000002c0: lui $t0, 0x400
+    t0 = 0x04000000;
+    // 0x000002c4: add $t6, $t6, $t0
+    t6 += t0;
+    // 0x000002c8: add $t9, $t9, $s0
+    t9 += s0;
+    // 0x000002cc: lui $t0, 0x10
+    t0 = 0x00100000;
+    // 0x000002d0: add $s6, $s6, $t0
+    s6 += t0;
+    // 0x000002d4: b 0x35c
+    goto loc_35c;
+
+loc_2d8:
+    // 0x000002d8: sw $s7, 4($s1)
+    *((uint32_t*)(s1 + 4)) = s7;
+    // 0x000002dc: addiu $s5, $a2, 0xc
+    s5 = a2 + 0xc;
+    // 0x000002e0: lw $a0, ($sp)
+    a0 = *((uint32_t*)sp);
+    // 0x000002e4: addi $sp, $sp, 8
+    sp += 8;
+    // 0x000002e8: addiu $a1, $zero, 1
+    a1 = 1;
+    // 0x000002ec: jal 0x4000a40
+    func_4000a40(a0, a1);
+    // 0x000002f0: nop
+    
+    // 0x000002f4: lw $t0, ($a3)
+    t0 = *((uint32_t*)a3);
+    // 0x000002f8: lui $t0, 8
+    t0 = 0x00080000;
+    // 0x000002fc: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x00000300: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x00000304: lui $t0, 0x10
+    t0 = 0x00100000;
+    // 0x00000308: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x0000030c: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x00000310: lui $t0, 0x18
+    t0 = 0x00180000;
+    // 0x00000314: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x00000318: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x0000031c: lw $t0, ($a3)
+    t0 = *((uint32_t*)a3);
+    // 0x00000320: lui $t0, 8
+    t0 = 0x00080000;
+    // 0x00000324: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x00000328: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x0000032c: lui $t0, 0x10
+    t0 = 0x00100000;
+    // 0x00000330: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x00000334: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x00000338: lui $t0, 0x18
+    t0 = 0x00180000;
+    // 0x0000033c: add $t0, $t0, $a3
+    t0 = t0 + a3;
+    // 0x00000340: lw $t1, ($t0)
+    t1 = *((uint32_t*)t0);
+    // 0x00000344: lui $t0, 0x800
+    t0 = 0x08000000;
+    // 0x00000348: add $s7, $s7, $t0
+    s7 += t0;
+    // 0x0000034c: add $a2, $a2, $s0
+    a2 += s0;
+    // 0x00000350: add $a2, $a2, $s0
+    a2 += s0;
+    // 0x00000354: lui $t0, 0x20
+    t0 = 0x00200000;
+    // 0x00000358: add $a3, $a3, $t0
+    a3 += t0;
+    // 0x0000035c: addiu $v1, $v1, 1
+loc_35c:
+    v1 += 1;
+    // 0x00000360: slt $t0, $v1, $t5
+    t0 = (v1 < t5);
+    // 0x00000364: bnez $t0, 0x274
+    if (t0) goto loc_274;
+    // 0x00000368: nop
+    
+    // 0x0000036c: lui $t2, 0xa470
+    t2 = 0xa4700000;
+    // 0x00000370: sll $s2, $s2, 0x13
+    s2 <<= 0x13;
+    // 0x00000374: lui $t1, 6
+    t1 = 6 << 16;
+    // 0x00000378: ori $t1, $t1, 0x3634
+    t1 |= 0x3634;
+    // 0x0000037c: or $t1, $t1, $s2
+    t1 |= s2;
+    // 0x00000380: sw $t1, 0x10($t2)
+    *((uint32_t*)(t2 + 0x10)) = t1;
+    // 0x00000384: lw $t1, 0x10($t2)
+    t1 = *((uint32_t*)(t2 + 0x10));
+    // 0x00000388: lui $t0, 0xa000
+    t0 = 0xa0000000;
+    // 0x0000038c: ori $t0, $t0, 0x300
+    t0 |= 0x300;
+    // 0x00000390: lui $t1, 0x0fff
+    t1 = 0x0fff0000;
+    // 0x00000394: ori $t1, $t1, 0xffff
+    t1 |= 0xffff;
+    // 0x00000398: and $s6, $s6, $t1
+    s6 &= t1;
+    // 0x0000039c: sw $s6, 0x18($t0)
+    *((uint32_t*)(t0 + 0x18)) = s6;
+    // 0x000003a0: move $sp, $fp
+    sp = fp;
+    // 0x000003a4: addiu $sp, $sp, 0x48
+    sp += 0x48;
+    // 0x000003a8: lw $s3, ($sp)
+    s3 = *((uint32_t*)sp);
+    // 0x000003ac: lw $s4, 4($sp)
+    s4 = *((uint32_t*)(sp + 4));
+    // 0x000003b0: lw $s5, 8($sp)
+    s5 = *((uint32_t*)(sp + 8));
+    // 0x000003b4: lw $s6, 0xc($sp)
+    s6 = *((uint32_t*)(sp + 0xc));
+    // 0x000003b8: lw $s7, 0x10($sp)
+    s7 = *((uint32_t*)(sp + 0x10));
+    // 0x000003bc: addiu $sp, $sp, 0x18
+    sp += 0x18;
+    // 0x000003c0: lui $t0, 0x8000
+    t0 = 0x80000000;
+    // 0x000003c4: addiu $t0, $t0, 0
+    t0 += 0;
+    // 0x000003c8: addiu $t1, $t0, 0x4000
+    t1 = t0 + 0x4000;
+    // 0x000003cc: addiu $t1, $t1, -0x20
+    t1 -= 0x20;
+    // 0x000003d0: mtc0 $zero, $gp, 0
+    // Coprocessor register write simulated as no-op in C
+    // 0x000003d4: mtc0 $zero, $sp, 0
+    // Coprocessor register write simulated as no-op in C
+loc_3d8:
+    // 0x000003d8: cache 8, ($t0)
+    // cache operation - ignored
+    // 0x000003dc: sltu $at, $t0, $t1
+    at = (t0 < t1);
+    // 0x000003e0: bnez $at, 0x3d8
+    // 0x000003e4: addiu $t0, $t0, 0x20
+    t0 += 0x20;
+    if (at) goto loc_3d8;
+    // 0x000003e8: lui $t0, 0x8000
+    t0 = 0x80000000;
+    // 0x000003ec: addiu $t0, $t0, 0
+    t0 += 0;
+    // 0x000003f0: addiu $t1, $t0, 0x2000
+    t1 = t0 + 0x2000;
+    // 0x000003f4: addiu $t1, $t1, -0x10
+    t1 -= 0x10;
+loc_3f8:
+    // 0x000003f8: cache 9, ($t0)
+    // cache operation - ignored
+    // 0x000003fc: sltu $at, $t0, $t1
+    at = (t0 < t1);
+    // 0x00000400: bnez $at, 0x3f8
+    // 0x00000404: addiu $t0, $t0, 0x10
+    t0 += 0x10;
+    if (at) goto loc_3f8;
+    // 0x00000408: b 0x458
+    goto loc_458;
+    // 0x0000040c: nop
+
+loc_410:
+    // 0x00000410: lui $t0, 0x8000
+    t0 = 0x80000000;
+    // 0x00000414: addiu $t0, $t0, 0
+    t0 += 0;
+    // 0x00000418: addiu $t1, $t0, 0x4000
+    t1 = t0 + 0x4000;
+    // 0x0000041c: addiu $t1, $t1, -0x20
+    t1 -= 0x20;
+    // 0x00000420: mtc0 $zero, $gp, 0
+    // Coprocessor write - ignored
+    // 0x00000424: mtc0 $zero, $sp, 0
+    // Coprocessor write - ignored
+loc_428:
+    // 0x00000428: cache 8, ($t0)
+    // cache operation - ignored
+    // 0x0000042c: sltu $at, $t0, $t1
+    at = (t0 < t1);
+    // 0x00000430: bnez $at, 0x428
+    // 0x00000434: addiu $t0, $t0, 0x20
+    t0 += 0x20;
+    if (at) goto loc_428;
+    // 0x00000438: lui $t0, 0x8000
+    t0 = 0x80000000;
+    // 0x0000043c: addiu $t0, $t0, 0
+    t0 += 0;
+    // 0x00000440: addiu $t1, $t0, 0x2000
+    t1 = t0 + 0x2000;
+    // 0x00000444: addiu $t1, $t1, -0x10
+    t1 -= 0x10;
+loc_448:
+    // 0x00000448: cache 1, ($t0)
+    // cache operation - ignored
+    // 0x0000044c: sltu $at, $t0, $t1
+    at = (t0 < t1);
+    // 0x00000450: bnez $at, 0x448
+    // 0x00000454: addiu $t0, $t0, 0x10
+    t0 += 0x10;
+    if (at) goto loc_448;
+loc_458:
+    // 0x00000458: lui $t2, 0xa400
+    t2 = 0xa4000000;
+    // 0x0000045c: addiu $t2, $t2, 0
+    t2 += 0;
+    // 0x00000460: lui $t3, 0xfff0
+    t3 = 0xfff00000;
+    // 0x00000464: lui $t1, 0x10
+    t1 = 0x00100000;
+    // 0x00000468: and $t2, $t2, $t3
+    t2 &= t3;
+    // 0x0000046c: lui $t0, 0xa400
+    t0 = 0xa4000000;
+    // 0x00000470: addiu $t1, $t1, -1
+    t1 -= 1;
+    // 0x00000474: lui $t3, 0xa400
+    t3 = 0xa4000000;
+    // 0x00000478: addiu $t0, $t0, 0x4c0
+    t0 += 0x4c0;
+    // 0x0000047c: addiu $t3, $t3, 0x774
+    t3 += 0x774;
+    // 0x00000480: and $t0, $t0, $t1
+    t0 &= t1;
+    // 0x00000484: and $t3, $t3, $t1
+    t3 &= t1;
+    // 0x00000488: lui $t1, 0xa000
+    t1 = 0xa0000000;
+    // 0x0000048c: or $t0, $t0, $t2
+    t0 |= t2;
+    // 0x00000490: or $t3, $t3, $t2
+    t3 |= t2;
+    // 0x00000494: addiu $t1, $t1, 0
+    t1 += 0;
+loc_498:
+    // 0x00000498: lw $t5, ($t0)
+    t5 = *((uint32_t*)t0);
+    // 0x0000049c: addiu $t0, $t0, 4
+    t0 += 4;
+    // 0x000004a0: sltu $at, $t0, $t3
+    at = (t0 < t3);
+    // 0x000004a4: addiu $t1, $t1, 4
+    t1 += 4;
+    // 0x000004a8: bnez $at, 0x498
+    if (at) goto loc_498;
+    // 0x000004ac: sw $t5, -4($t1)
+    *((uint32_t*)(t1 - 4)) = t5;
+    // 0x000004b0: lui $t4, 0x8000
+    t4 = 0x80000000;
+    // 0x000004b4: addiu $t4, $t4, 0
+    t4 += 0;
+    // 0x000004b8: jr $t4
+    goto *(void*)t4;
+    // 0x000004bc: nop
+}
