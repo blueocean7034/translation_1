@@ -1,0 +1,460 @@
+// Continuing first pass translation of part_aa into C.
+// Addresses 0x000004c0 - 0x0000087c
+
+void continue_init_sequence2(void) {
+loc_4c0:
+    // 0x000004c0: lui $t3, 0xb000
+    t3 = 0xb0000000;
+    // 0x000004c4: lw $t1, 8($t3)
+    t1 = *((uint32_t*)(t3 + 8));
+    // 0x000004c8: lui $t2, 0x1fff
+    t2 = 0x1fff0000;
+    // 0x000004cc: ori $t2, $t2, 0xffff
+    t2 |= 0xffff;
+    // 0x000004d0: lui $at, 0xa460
+    at = 0xa4600000;
+    // 0x000004d4: and $t1, $t1, $t2
+    t1 &= t2;
+    // 0x000004d8: sw $t1, ($at)
+    *((uint32_t*)at) = t1;
+    // 0x000004dc: lui $t0, 0xa460
+    t0 = 0xa4600000;
+    loc_4e0:
+    // 0x000004e0: lw $t0, 0x10($t0)
+    t0 = *((uint32_t*)(t0 + 0x10));
+    // 0x000004e4: andi $t0, $t0, 2
+    t0 &= 2;
+    // 0x000004e8: bnel $t0, $zero, 0x4e0
+    if (t0 != 0) goto loc_4e0;
+    // 0x000004ec: lui $t0, 0xa460
+    t0 = 0xa4600000;
+    // 0x000004f0: addiu $t0, $zero, 0x1000
+    t0 = 0x1000;
+    // 0x000004f4: add $t0, $t0, $t3
+    t0 = t0 + t3;
+    // 0x000004f8: and $t0, $t0, $t2
+    t0 &= t2;
+    // 0x000004fc: lui $at, 0xa460
+    at = 0xa4600000;
+    // 0x00000500: sw $t0, 4($at)
+    *((uint32_t*)(at + 4)) = t0;
+    // 0x00000504: lui $t2, 0x10
+    t2 = 0x00100000;
+    // 0x00000508: addiu $t2, $t2, -1
+    t2 += -1;
+    // 0x0000050c: lui $at, 0xa460
+    at = 0xa4600000;
+    // 0x00000510: sw $t2, 0xc($at)
+    *((uint32_t*)(at + 0xc)) = t2;
+    // 0x00000514: nop
+    // 0x00000518: nop
+    // 0x0000051c: nop
+    // 0x00000520: nop
+    // 0x00000524: nop
+    // 0x00000528: nop
+    // 0x0000052c: nop
+    // 0x00000530: nop
+    // 0x00000534: nop
+    // 0x00000538: nop
+    // 0x0000053c: nop
+    // 0x00000540: nop
+    // 0x00000544: nop
+    // 0x00000548: nop
+    // 0x0000054c: nop
+    // 0x00000550: nop
+    // 0x00000554: nop
+    // 0x00000558: nop
+    // 0x0000055c: nop
+    // 0x00000560: nop
+    // 0x00000564: nop
+    // 0x00000568: nop
+    // 0x0000056c: nop
+    // 0x00000570: nop
+    // 0x00000574: nop
+    // 0x00000578: nop
+    // 0x0000057c: nop
+    // 0x00000580: nop
+    // 0x00000584: lui $t3, 0xa460
+    t3 = 0xa4600000;
+    // 0x00000588: lw $t3, 0x10($t3)
+    t3 = *((uint32_t*)(t3 + 0x10));
+    // 0x0000058c: andi $t3, $t3, 1
+    t3 &= 1;
+    // 0x00000590: bnez $t3, 0x514
+    if (t3 != 0) goto loc_514;
+    // 0x00000594: nop
+    // 0x00000598: lui $t3, 0xb000
+    t3 = 0xb0000000;
+    // 0x0000059c: lw $a0, 8($t3)
+    a0 = *((uint32_t*)(t3 + 8));
+    // 0x000005a0: move $a1, $s6
+    a1 = s6;
+    // 0x000005a4: lui $at, 0x5d58
+    at = 0x5d580000;
+    // 0x000005a8: ori $at, $at, 0x8b65
+    at |= 0x8b65;
+    // 0x000005ac: multu $a1, $at
+    __asm__("multu %0, %1" : : "r"(a1), "r"(at));
+    // 0x000005b0: addiu $sp, $sp, -0x20
+    sp -= 0x20;
+    // 0x000005b4: sw $ra, 0x1c($sp)
+    *((uint32_t*)(sp + 0x1c)) = ra;
+    // 0x000005b8: sw $s0, 0x14($sp)
+    *((uint32_t*)(sp + 0x14)) = s0;
+    // 0x000005bc: lui $ra, 0x10
+    ra = 0x00100000;
+    // 0x000005c0: move $v1, $zero
+    v1 = 0;
+    // 0x000005c4: move $t0, $zero
+    t0 = 0;
+    // 0x000005c8: move $t1, $a0
+    t1 = a0;
+    // 0x000005cc: addiu $t5, $zero, 0x20
+    t5 = 0x20;
+    // 0x000005d0: mflo $v0
+    __asm__("mflo %0" : "=r"(v0));
+    // 0x000005d4: addiu $v0, $v0, 1
+    v0 += 1;
+    // 0x000005d8: move $a3, $v0
+    a3 = v0;
+    // 0x000005dc: move $t2, $v0
+    t2 = v0;
+    // 0x000005e0: move $t3, $v0
+    t3 = v0;
+    // 0x000005e4: move $s0, $v0
+    s0 = v0;
+    // 0x000005e8: move $a2, $v0
+    a2 = v0;
+    // 0x000005ec: move $t4, $v0
+    t4 = v0;
+loc_5f0:
+    // 0x000005f0: lw $v0, ($t1)
+    v0 = *((uint32_t*)t1);
+    // 0x000005f4: addu $v1, $a3, $v0
+    v1 = a3 + v0;
+    // 0x000005f8: sltu $at, $v1, $a3
+    at = (v1 < a3);
+    // 0x000005fc: beqz $at, 0x608
+    if (at == 0) goto loc_608;
+    // 0x00000600: move $a1, $v1
+    a1 = v1;
+    // 0x00000604: addiu $t2, $t2, 1
+    t2 += 1;
+loc_608:
+    // 0x00000608: andi $v1, $v0, 0x1f
+    v1 = v0 & 0x1f;
+    // 0x0000060c: subu $t7, $t5, $v1
+    t7 = t5 - v1;
+    // 0x00000610: srlv $t8, $v0, $t7
+    t8 = v0 >> t7;
+    // 0x00000614: sllv $t6, $v0, $v1
+    t6 = v0 << v1;
+    // 0x00000618: or $a0, $t6, $t8
+    a0 = t6 | t8;
+    // 0x0000061c: sltu $at, $a2, $v0
+    at = (a2 < v0);
+    // 0x00000620: move $a3, $a1
+    a3 = a1;
+    // 0x00000624: xor $t3, $t3, $v0
+    t3 ^= v0;
+    // 0x00000628: beqz $at, 0x63c
+    if (at == 0) goto loc_63c;
+    // 0x0000062c: addu $s0, $s0, $a0
+    s0 = s0 + a0;
+    // 0x00000630: xor $t9, $a3, $v0
+    t9 = a3 ^ v0;
+    // 0x00000634: b 0x640
+    goto loc_640;
+    // 0x00000638: xor $a2, $t9, $a2
+loc_63c:
+    a2 = a2 ^ a0;
+loc_640:
+    // 0x00000640: addiu $t0, $t0, 4
+    t0 += 4;
+    // 0x00000644: xor $t7, $v0, $s0
+    t7 = v0 ^ s0;
+    // 0x00000648: addiu $t1, $t1, 4
+    t1 += 4;
+    // 0x0000064c: bne $t0, $ra, 0x5f0
+    if (t0 != ra) goto loc_5f0;
+    // 0x00000650: addu $t4, $t7, $t4
+    t4 = t7 + t4;
+    // 0x00000654: xor $t6, $a3, $t2
+    t6 = a3 ^ t2;
+    // 0x00000658: xor $a3, $t6, $t3
+    a3 = t6 ^ t3;
+    // 0x0000065c: xor $t8, $s0, $a2
+    t8 = s0 ^ a2;
+    // 0x00000660: xor $s0, $t8, $t4
+    s0 = t8 ^ t4;
+    // 0x00000664: lui $t3, 0xb000
+    t3 = 0xb0000000;
+    // 0x00000668: lw $t0, 0x10($t3)
+    t0 = *((uint32_t*)(t3 + 0x10));
+    // 0x0000066c: bne $a3, $t0, 0x688
+    if (a3 != t0) goto loc_688;
+    // 0x00000670: nop
+    // 0x00000674: lw $t0, 0x14($t3)
+    t0 = *((uint32_t*)(t3 + 0x14));
+    // 0x00000678: bne $s0, $t0, 0x688
+    if (s0 != t0) goto loc_688;
+    // 0x0000067c: nop
+    // 0x00000680: bal 0x690
+    goto loc_690; // branch always with link
+    // 0x00000684: nop
+loc_688:
+    // 0x00000688: bal 0x688
+    goto loc_688; // branch always with link
+    // 0x0000068c: nop
+loc_690:
+    // 0x00000690: lui $t1, 0xa408
+    t1 = 0xa4080000;
+    // 0x00000694: lw $t1, ($t1)
+    t1 = *((uint32_t*)t1);
+    // 0x00000698: lw $s0, 0x14($sp)
+    s0 = *((uint32_t*)(sp + 0x14));
+    // 0x0000069c: lw $ra, 0x1c($sp)
+    ra = *((uint32_t*)(sp + 0x1c));
+    // 0x000006a0: beqz $t1, 0x6bc
+    if (t1 == 0) goto loc_6bc;
+    // 0x000006a4: addiu $sp, $sp, 0x20
+    sp += 0x20;
+    // 0x000006a8: addiu $t2, $zero, 0x41
+    t2 = 0x41;
+    // 0x000006ac: lui $at, 0xa404
+    at = 0xa4040000;
+    // 0x000006b0: sw $t2, 0x10($at)
+    *((uint32_t*)(at + 0x10)) = t2;
+    // 0x000006b4: lui $at, 0xa408
+    at = 0xa4080000;
+    // 0x000006b8: sw $zero, ($at)
+    *((uint32_t*)at) = 0;
+loc_6bc:
+    // 0x000006bc: lui $t3, 0xaa
+    t3 = 0x0000aa00;
+    // 0x000006c0: ori $t3, $t3, 0xaaae
+    t3 |= 0xaaae;
+    // 0x000006c4: lui $at, 0xa404
+    at = 0xa4040000;
+    // 0x000006c8: sw $t3, 0x10($at)
+    *((uint32_t*)(at + 0x10)) = t3;
+    // 0x000006cc: lui $at, 0xa430
+    at = 0xa4300000;
+    // 0x000006d0: addiu $t0, $zero, 0x555
+    t0 = 0x555;
+    // 0x000006d4: sw $t0, 0xc($at)
+    *((uint32_t*)(at + 0xc)) = t0;
+    // 0x000006d8: lui $at, 0xa480
+    at = 0xa4800000;
+    // 0x000006dc: sw $zero, 0x18($at)
+    *((uint32_t*)(at + 0x18)) = 0;
+    // 0x000006e0: lui $at, 0xa450
+    at = 0xa4500000;
+    // 0x000006e4: sw $zero, 0xc($at)
+    *((uint32_t*)(at + 0xc)) = 0;
+    // 0x000006e8: lui $at, 0xa430
+    at = 0xa4300000;
+    // 0x000006ec: addiu $t1, $zero, 0x800
+    t1 = 0x800;
+    // 0x000006f0: sw $t1, ($at)
+    *((uint32_t*)at) = t1;
+    // 0x000006f4: addiu $t1, $zero, 2
+    t1 = 2;
+    // 0x000006f8: lui $at, 0xa460
+    at = 0xa4600000;
+    // 0x000006fc: lui $t0, 0xa000
+    t0 = 0xa0000000;
+    // 0x00000700: ori $t0, $t0, 0x300
+    t0 |= 0x300;
+    // 0x00000704: sw $t1, 0x10($at)
+    *((uint32_t*)(at + 0x10)) = t1;
+    // 0x00000708: sw $s7, 0x14($t0)
+    *((uint32_t*)(t0 + 0x14)) = s7;
+    // 0x0000070c: sw $s5, 0xc($t0)
+    *((uint32_t*)(t0 + 0xc)) = s5;
+    // 0x00000710: sw $s3, 4($t0)
+    *((uint32_t*)(t0 + 4)) = s3;
+    // 0x00000714: beqz $s3, 0x728
+    if (s3 == 0) goto loc_728;
+    // 0x00000718: sw $s4, ($t0)
+    *((uint32_t*)t0) = s4;
+    // 0x0000071c: lui $t1, 0xa600
+    t1 = 0xa6000000;
+    // 0x00000720: b 0x730
+    goto loc_730;
+    // 0x00000724: addiu $t1, $t1, 0
+loc_728:
+    t1 = 0xb0000000;
+    // 0x0000072c: addiu $t1, $t1, 0
+    t1 += 0;
+loc_730:
+    // 0x00000730: sw $t1, 8($t0)
+    *((uint32_t*)(t0 + 8)) = t1;
+    // 0x00000734: lui $t0, 0xa400
+    t0 = 0xa4000000;
+    // 0x00000738: addiu $t0, $t0, 0
+    t0 += 0;
+    // 0x0000073c: addi $t1, $t0, 0x1000
+    t1 = t0 + 0x1000;
+    // 0x00000740: addiu $t0, $t0, 4
+    t0 += 4;
+loc_740:
+    // 0x00000744: bne $t0, $t1, 0x740
+    if (t0 != t1) goto loc_740;
+    // 0x00000748: sw $zero, -4($t0)
+    *((uint32_t*)(t0 - 4)) = 0;
+    // 0x0000074c: lui $t0, 0xa400
+    t0 = 0xa4000000;
+    // 0x00000750: addiu $t0, $t0, 0x1000
+    t0 += 0x1000;
+    // 0x00000754: addi $t1, $t0, 0x1000
+    t1 = t0 + 0x1000;
+    // 0x00000758: addiu $t0, $t0, 4
+    t0 += 4;
+loc_758:
+    // 0x0000075c: bne $t0, $t1, 0x758
+    if (t0 != t1) goto loc_758;
+    // 0x00000760: sw $zero, -4($t0)
+    *((uint32_t*)(t0 - 4)) = 0;
+    // 0x00000764: lui $t3, 0xb000
+    t3 = 0xb0000000;
+    // 0x00000768: lw $t1, 8($t3)
+    t1 = *((uint32_t*)(t3 + 8));
+    // 0x0000076c: jr $t1
+    goto *(void*)t1;
+    // 0x00000770: nop
+    // 0x00000774: nop
+loc_778:
+    // 0x00000778: addiu $sp, $sp, -0xa0
+    sp -= 0xa0;
+    // 0x0000077c: sw $s0, 0x40($sp)
+    *((uint32_t*)(sp + 0x40)) = s0;
+    // 0x00000780: sw $s1, 0x44($sp)
+    *((uint32_t*)(sp + 0x44)) = s1;
+    // 0x00000784: move $s1, $zero
+    s1 = 0;
+    // 0x00000788: move $s0, $zero
+    s0 = 0;
+    // 0x0000078c: sw $v0, ($sp)
+    *((uint32_t*)sp) = v0;
+    // 0x00000790: sw $v1, 4($sp)
+    *((uint32_t*)(sp + 4)) = v1;
+    // 0x00000794: sw $a0, 8($sp)
+    *((uint32_t*)(sp + 8)) = a0;
+    // 0x00000798: sw $a1, 0xc($sp)
+    *((uint32_t*)(sp + 0xc)) = a1;
+    // 0x0000079c: sw $a2, 0x10($sp)
+    *((uint32_t*)(sp + 0x10)) = a2;
+    // 0x000007a0: sw $a3, 0x14($sp)
+    *((uint32_t*)(sp + 0x14)) = a3;
+    // 0x000007a4: sw $t0, 0x18($sp)
+    *((uint32_t*)(sp + 0x18)) = t0;
+    // 0x000007a8: sw $t1, 0x1c($sp)
+    *((uint32_t*)(sp + 0x1c)) = t1;
+    // 0x000007ac: sw $t2, 0x20($sp)
+    *((uint32_t*)(sp + 0x20)) = t2;
+    // 0x000007b0: sw $t3, 0x24($sp)
+    *((uint32_t*)(sp + 0x24)) = t3;
+    // 0x000007b4: sw $t4, 0x28($sp)
+    *((uint32_t*)(sp + 0x28)) = t4;
+    // 0x000007b8: sw $t5, 0x2c($sp)
+    *((uint32_t*)(sp + 0x2c)) = t5;
+    // 0x000007bc: sw $t6, 0x30($sp)
+    *((uint32_t*)(sp + 0x30)) = t6;
+    // 0x000007c0: sw $t7, 0x34($sp)
+    *((uint32_t*)(sp + 0x34)) = t7;
+    // 0x000007c4: sw $t8, 0x38($sp)
+    *((uint32_t*)(sp + 0x38)) = t8;
+    // 0x000007c8: sw $t9, 0x3c($sp)
+    *((uint32_t*)(sp + 0x3c)) = t9;
+    // 0x000007cc: sw $s2, 0x48($sp)
+    *((uint32_t*)(sp + 0x48)) = s2;
+    // 0x000007d0: sw $s3, 0x4c($sp)
+    *((uint32_t*)(sp + 0x4c)) = s3;
+    // 0x000007d4: sw $s4, 0x50($sp)
+    *((uint32_t*)(sp + 0x50)) = s4;
+    // 0x000007d8: sw $s5, 0x54($sp)
+    *((uint32_t*)(sp + 0x54)) = s5;
+    // 0x000007dc: sw $s6, 0x58($sp)
+    *((uint32_t*)(sp + 0x58)) = s6;
+    // 0x000007e0: sw $s7, 0x5c($sp)
+    *((uint32_t*)(sp + 0x5c)) = s7;
+    // 0x000007e4: sw $fp, 0x60($sp)
+    *((uint32_t*)(sp + 0x60)) = fp;
+    // 0x000007e8: sw $ra, 0x64($sp)
+    *((uint32_t*)(sp + 0x64)) = ra;
+loc_7ec:
+    // 0x000007ec: jal 0x4000880
+    v0 = func_4000880();
+    // 0x000007f0: nop
+    // 0x000007f4: addiu $s0, $s0, 1
+    s0 += 1;
+    // 0x000007f8: slti $t1, $s0, 4
+    t1 = (s0 < 4);
+    // 0x000007fc: bnez $t1, 0x7ec
+    if (t1) goto loc_7ec;
+    // 0x00000800: addu $s1, $s1, $v0
+    s1 = s1 + v0;
+    // 0x00000804: srl $a0, $s1, 2
+    a0 = s1 >> 2;
+    // 0x00000808: jal 0x4000a40
+    func_4000a40(a0, a1);
+    // 0x0000080c: addiu $a1, $zero, 1
+    a1 = 1;
+    // 0x00000810: lw $ra, 0x64($sp)
+    ra = *((uint32_t*)(sp + 0x64));
+    // 0x00000814: srl $v0, $s1, 2
+    v0 = s1 >> 2;
+    // 0x00000818: lw $s1, 0x44($sp)
+    s1 = *((uint32_t*)(sp + 0x44));
+    // 0x0000081c: lw $v1, 4($sp)
+    v1 = *((uint32_t*)(sp + 4));
+    // 0x00000820: lw $a0, 8($sp)
+    a0 = *((uint32_t*)(sp + 8));
+    // 0x00000824: lw $a1, 0xc($sp)
+    a1 = *((uint32_t*)(sp + 0xc));
+    // 0x00000828: lw $a2, 0x10($sp)
+    a2 = *((uint32_t*)(sp + 0x10));
+    // 0x0000082c: lw $a3, 0x14($sp)
+    a3 = *((uint32_t*)(sp + 0x14));
+    // 0x00000830: lw $t0, 0x18($sp)
+    t0 = *((uint32_t*)(sp + 0x18));
+    // 0x00000834: lw $t1, 0x1c($sp)
+    t1 = *((uint32_t*)(sp + 0x1c));
+    // 0x00000838: lw $t2, 0x20($sp)
+    t2 = *((uint32_t*)(sp + 0x20));
+    // 0x0000083c: lw $t3, 0x24($sp)
+    t3 = *((uint32_t*)(sp + 0x24));
+    // 0x00000840: lw $t4, 0x28($sp)
+    t4 = *((uint32_t*)(sp + 0x28));
+    // 0x00000844: lw $t5, 0x2c($sp)
+    t5 = *((uint32_t*)(sp + 0x2c));
+    // 0x00000848: lw $t6, 0x30($sp)
+    t6 = *((uint32_t*)(sp + 0x30));
+    // 0x0000084c: lw $t7, 0x34($sp)
+    t7 = *((uint32_t*)(sp + 0x34));
+    // 0x00000850: lw $t8, 0x38($sp)
+    t8 = *((uint32_t*)(sp + 0x38));
+    // 0x00000854: lw $t9, 0x3c($sp)
+    t9 = *((uint32_t*)(sp + 0x3c));
+    // 0x00000858: lw $s0, 0x40($sp)
+    s0 = *((uint32_t*)(sp + 0x40));
+    // 0x0000085c: lw $s2, 0x48($sp)
+    s2 = *((uint32_t*)(sp + 0x48));
+    // 0x00000860: lw $s3, 0x4c($sp)
+    s3 = *((uint32_t*)(sp + 0x4c));
+    // 0x00000864: lw $s4, 0x50($sp)
+    s4 = *((uint32_t*)(sp + 0x50));
+    // 0x00000868: lw $s5, 0x54($sp)
+    s5 = *((uint32_t*)(sp + 0x54));
+    // 0x0000086c: lw $s6, 0x58($sp)
+    s6 = *((uint32_t*)(sp + 0x58));
+    // 0x00000870: lw $s7, 0x5c($sp)
+    s7 = *((uint32_t*)(sp + 0x5c));
+    // 0x00000874: lw $fp, 0x60($sp)
+    fp = *((uint32_t*)(sp + 0x60));
+    // 0x00000878: jr $ra
+    goto * (void*)ra;
+    // 0x0000087c: addiu $sp, $sp, 0xa0
+    sp += 0xa0;
+}
