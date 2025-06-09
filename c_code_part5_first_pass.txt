@@ -1,0 +1,252 @@
+// Continuing first pass translation of part_aa into C.
+// Addresses 0x00000b68 - 0x00000e5c
+
+void func_b68_sequence(void) {
+loc_b68:
+    // 0x00000b68: nop
+    ;
+    // 0x00000b6c: nop
+    ;
+    // 0x00000b70: movf $v0, $s0, $fcc0
+    if (!fcc0) v0 = s0;
+    // 0x00000b78: bltz $v0, 0x9384
+    if ((int32_t)v0 < 0) goto loc_9384;
+    // 0x00000b7c: j 0x4107fc
+    goto *(void*)0x04107fc;
+    // 0x00000b80: j 0x210110
+    goto *(void*)0x0210110;
+    // 0x00000b8c: lb $a0, 0x420($a0)
+    a0 = *((int8_t*)(a0 + 0x420));
+    // 0x00000b98: j 0x2011010
+    goto *(void*)0x02011010;
+    // 0x00000ba0: lwc1 $f8, 0x880($s0)
+    f8 = *((float*)(s0 + 0x880));
+    // 0x00000ba4: addiu $at, $zero, 0x4002
+    at = 0x4002;
+    // 0x00000ba8: sll $zero, $s0, 2
+    zero = s0 << 2;
+    // 0x00000bac: sllv $s2, $zero, $s0
+    s2 = zero << s0;
+    // 0x00000bb4: lb $fp, 0x20c($v1)
+    fp = *((int8_t*)(v1 + 0x20c));
+    // 0x00000bb8: beq $zero, $s0, -0x1f334
+    if (0 == s0) goto loc_fffe0ccc;
+    // 0x00000bc8: lh $t8, 0x3f00($zero)
+    t8 = *((int16_t*)0x3f00);
+    // 0x00000bcc: addu.qb $zero, $ra, $v0
+    zero = (ra + v0) & 0xFF;
+    // 0x00000bd4: addi $at, $zero, -0xf8
+    at = -0xf8;
+    // 0x00000bdc: b -0x1f410
+    goto loc_fffe0bf0;
+    // 0x00000be4: sc $zero, 0x1000($s0)
+    *((uint8_t*)(s0 + 0x1000)) = zero;
+    // 0x00000be8: lb $a0, 0x20($zero)
+    a0 = *((int8_t*)0x20);
+    // 0x00000bf8: addi $zero, $zero, 0x700
+    zero = 0x700;
+    // 0x00000bfc: lwc1 $f8, 0x880($s0)
+    f8 = *((float*)(s0 + 0x880));
+    // 0x00000c00: addiu $at, $zero, 0x4002
+    at = 0x4002;
+    // 0x00000c04: sra $zero, $s0, 2
+    zero = (int32_t)s0 >> 2;
+    // 0x00000c08: scd $zero, -0x6ffc($s0)
+    *((uint64_t*)(s0 - 0x6ffc)) = zero;
+    // 0x00000c10: lwl $zero, 0x1200($v0)
+    zero = load_word_left(v0 + 0x1200);
+    // 0x00000c14: lbu $a0, -0x7fdc($zero)
+    a0 = *((uint8_t*)((int32_t)zero - 0x7fdc));
+    // 0x00000c1c: bbit0 $zero, 2, 0x10c68
+    if (((zero >> 2) & 1) == 0) goto loc_10c68;
+    // 0x00000c24: addiu $at, $zero, 0x2008
+    at = 0x2008;
+    // 0x00000c28: bltz $t8, 0x4c2c
+    if ((int32_t)t8 < 0) goto loc_4c2c;
+    // 0x00000c2c: lb $a0, 0x20($zero)
+    a0 = *((int8_t*)0x20);
+    // 0x00000c3c: addi $v1, $zero, -0x8000
+    v1 = -0x8000;
+    // 0x00000c48: addi $at, $zero, 8
+    at = 8;
+    // 0x00000c50: beqz $a0, -0x1eb8c
+    if (a0 == 0) goto loc_fffe1474;
+    // 0x00000c54: jal 0xe010088
+    func_e010088();
+    // 0x00000c5c: bltz $at, 0x9464
+    if ((int32_t)at < 0) goto loc_9464;
+    // 0x00000c60: addi $t2, $zero, -0x7f9e
+    t2 = -0x7f9e;
+    // 0x00000c64: add $v0, $s0, $t0
+    v0 = s0 + t0;
+    // 0x00000c68: lb $a0, 0x220($a0)
+    a0 = *((int8_t*)(a0 + 0x220));
+    // 0x00000c6c: j 0x1000800
+    goto *(void*)0x01000800;
+    // 0x00000c70: b -0x1f37c
+    goto loc_fffe0c84;
+    // 0x00000c78: j 0x10008
+    goto *(void*)0x0010008;
+    // 0x00000c7c: sll $zero, $s0, 2
+    zero = s0 << 2;
+    // 0x00000c80: bltz $zero, 0x10c44
+    if ((int32_t)zero < 0) goto loc_10c44;
+    // 0x00000c84: lb $t4, 0x70($zero)
+    t4 = *((int8_t*)((int32_t)zero + 0x70));
+    // 0x00000c88: bltz $k0, 0x17494
+    if ((int32_t)k0 < 0) goto loc_17494;
+    // 0x00000c8c: bbit0 $at, 6, 0x11154
+    if (((at >> 6) & 1) == 0) goto loc_11154;
+    // 0x00000c90: beq $t4, $t0, -0x1c2cc
+    if (t4 == t0) goto loc_fffe3d34;
+    // 0x00000c94: daddi $v1, $t2, 0x418
+    v1 = t2 + 0x418;
+    // 0x00000c98: addi $zero, $a2, 0x440
+    zero = a2 + 0x440;
+    // 0x00000c9c: addi $at, $t8, 0x1408
+    at = t8 + 0x1408;
+    // 0x00000ca0: sb $a0, -0x7dde($v0)
+    *((int8_t*)(v0 - 0x7dde)) = a0;
+    // 0x00000ca4: beq $t0, $s0, -0x1d248
+    if (t0 == s0) goto loc_fffe2db8;
+    // 0x00000cac: slti $at, $a0, 0x4406
+    at = (a0 < 0x4406);
+    // 0x00000cb0: addi $s0, $zero, 0xf01
+    s0 = 0xf01;
+    // 0x00000cb4: lh $s0, 0x880($s0)
+    s0 = *((int16_t*)(s0 + 0x880));
+    // 0x00000cc0: bnez $zero, -0x1b31c
+    if (zero != 0) goto loc_fffe4ce4;
+    // 0x00000cc4: lb $v1, 0xc07($v0)
+    v1 = *((int8_t*)(v0 + 0xc07));
+    // 0x00000cc8: lb $ra, -0x7dfe($v1)
+    ra = *((int8_t*)(v1 - 0x7dfe));
+    // 0x00000ccc: beq $zero, $t0, -0x1f220
+    if (0 == t0) goto loc_fffe0de0;
+    // 0x00000cd4: jal 0xfc10008
+    func_fc10008();
+    // 0x00000cd8: sll $zero, $s0, 2
+    zero = s0 << 2;
+    // 0x00000cdc: bltz $zero, 0x8ce0
+    if ((int32_t)zero < 0) goto loc_8ce0;
+    // 0x00000ce0: jal 0xc061840
+    func_c061840();
+    // 0x00000ce4: j 0x2012004
+    goto *(void*)0x02012004;
+    // 0x00000cf0: lbu $t0, -0x7ebd($v0)
+    t0 = *((uint8_t*)(v0 - 0x7ebd));
+    // 0x00000cf4: jal 0x1e41fc
+    func_1e41fc();
+    // 0x00000cf8: lb $v0, 0x1008($s0)
+    v0 = *((int8_t*)(s0 + 0x1008));
+    // 0x00000cfc: lb $a0, 0x220($v0)
+    a0 = *((int8_t*)(v0 + 0x220));
+    // 0x00000d00: addi $fp, $t7, 0x820
+    fp = t7 + 0x820;
+    // 0x00000d08: beqz $a0, -0x1e2ec
+    if (a0 == 0) goto loc_fffe1d14;
+    // 0x00000d0c: addi $s0, $zero, 0x1f81
+    s0 = 0x1f81;
+    // 0x00000d14: mfc1 $zero, $f2
+    zero = f2;
+    // 0x00000d20: lb $v0, 0x40f($v0)
+    v0 = *((int8_t*)(v0 + 0x40f));
+    // 0x00000d24: ll $ra, -0xff0($v1)
+    ra = *((uint32_t*)(v1 - 0xff0));
+    // 0x00000d2c: addi $at, $zero, 8
+    at = 8;
+    // 0x00000d34: b -0x1f2b8
+    goto loc_fffe0d48;
+    // 0x00000d40: j 0x2011008
+    goto *(void*)0x02011008;
+    // 0x00000d44: addi $s1, $zero, 0x88
+    s1 = 0x88;
+    // 0x00000d48: bltz $v0, 0x9550
+    if ((int32_t)v0 < 0) goto loc_9550;
+    // 0x00000d4c: j 0x410204
+    goto *(void*)0x0410204;
+    // 0x00000d50: j 0x1e0100
+    goto *(void*)0x01e0100;
+    // 0x00000d54: beqz $s0, -0x1d288
+    if (s0 == 0) goto loc_fffe2d78;
+    // 0x00000d5c: addi $at, $v0, 0x110
+    at = v0 + 0x110;
+    // 0x00000d60: j 0x2011004
+    goto *(void*)0x02011004;
+    // 0x00000d68: syscall 0x40208
+    syscall(0x40208);
+    // 0x00000d6c: beqz $v1, -0x1e868
+    if (v1 == 0) goto loc_fffe1798;
+    // 0x00000d70: addiu $s1, $v0, 0x2289
+    s1 = v0 + 0x2289;
+    // 0x00000d74: bne $v0, $a1, 0x5e18
+    if (v0 != a1) goto loc_5e18;
+    // 0x00000d78: sb $a1, 0xa28($t2)
+    *((int8_t*)(t2 + 0xa28)) = a1;
+    // 0x00000d7c: addi $at, $a0, 0x408
+    at = a0 + 0x408;
+    // 0x00000d80: addi $zero, $v0, 0x1101
+    zero = v0 + 0x1101;
+    // 0x00000d84: bltzal $zero, 0x8f88
+    if ((int32_t)zero < 0) { ra = pc + 8; goto loc_8f88; }
+    // 0x00000d88: lwl $v0, -0x7ff8($zero)
+    v0 = load_word_left((int32_t)zero - 0x7ff8);
+    // 0x00000d94: lb $v0, 0x2008($s0)
+    v0 = *((int8_t*)(s0 + 0x2008));
+    // 0x00000d9c: j 0x820220
+    goto *(void*)0x0820220;
+    // 0x00000da0: bltz $v0, 0x5da4
+    if ((int32_t)v0 < 0) goto loc_5da4;
+    // 0x00000dac: addi $at, $zero, 0x7f
+    at = 0x7f;
+    // 0x00000db0: sc $at, 0x10($zero)
+    *((uint8_t*)0x10) = at;
+    // 0x00000db8: lb $t0, 0x80($zero)
+    t0 = *((int8_t*)0x80);
+    // 0x00000dbc: j 0x20010
+    goto *(void*)0x020010;
+    // 0x00000dc8: lb $t0, 0x840($s0)
+    t0 = *((int8_t*)(s0 + 0x840));
+    // 0x00000dd0: lb $a0, 0x420($a0)
+    a0 = *((int8_t*)(a0 + 0x420));
+    // 0x00000dd4: addi $at, $t0, 0x808
+    at = t0 + 0x808;
+    // 0x00000ddc: ll $v0, 0x30($zero)
+    v0 = *((uint32_t*)0x30);
+    // 0x00000de4: addi $at, $zero, 8
+    at = 8;
+    // 0x00000dec: b -0x1f200
+    goto loc_fffe0e00;
+    // 0x00000df4: jal 0xc021020
+    func_c021020();
+    // 0x00000df8: beqz $v0, -0x1f1f4
+    if (v0 == 0) goto loc_fffe0e0c;
+    // 0x00000e00: addi $v0, $zero, 0x20
+    v0 = 0x20;
+    // 0x00000e08: sync
+    __sync_synchronize();
+    // 0x00000e1c: beqz $v0, -0x1edc0
+    if (v0 == 0) goto loc_fffe1240;
+    // 0x00000e20: bltz $gp, 0x1224
+    if ((int32_t)gp < 0) goto loc_1224;
+    // 0x00000e24: blez $zero, -0xf1b0
+    if (0 <= 0) goto loc_ffff0e50;
+    // 0x00000e38: lb $ra, -0x7f00($zero)
+    ra = *((int8_t*)0xffff8100);
+    // 0x00000e3c: j 0x10008
+    goto *(void*)0x0010008;
+    // 0x00000e40: srl $s0, $s7, 3
+    s0 = (uint32_t)s7 >> 3;
+    // 0x00000e44: tgei $zero, 0x40
+    if ((int32_t)zero >= 0x40) trap();
+    // 0x00000e4c: lb $t0, 0x780($t0)
+    t0 = *((int8_t*)(t0 + 0x780));
+    // 0x00000e50: jal 0xc021020
+    func_c021020();
+    // 0x00000e54: beqz $v0, -0x1e9a8
+    if (v0 == 0) goto loc_fffe1658;
+    // 0x00000e58: b -0x1018c
+    goto loc_fffefe74;
+    // 0x00000e5c: beqz $at, 0x11268
+    if (at == 0) goto loc_11268;
+}
